@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1482152701699_97_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "zwx.sm.itsm.keyuserincidents.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "visible",
+		"oldValue": true,
+		"newValue": false
+	},
+	"selector": {
+		"id": "zwx.sm.itsm.keyuserincidents::sap.suite.ui.generic.template.ObjectPage.view.Details::IncidentSet--footerAction::ObjectPageProcessAction",
+		"type": "sap.m.Button",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/zwx.sm.itsm.keyuserincidents/changes/",
+	"creation": "2016-12-19T13:05:02.186Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

@@ -1,0 +1,7 @@
+<core:View controllerName="zwx.sm.itsm.keyuserincidents.ext.controllers.Attachments" id="Attachments" xmlns:core="sap.ui.core"
+    xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+				<UploadCollection class="sapUiResponsiveContentPadding" change="onChange" fileDeleted="onDeleteFile" fileRenamed="onFileRenamed" id="fileUpload" instantUpload="true"
+					multiple="true" noDataText="{i18n>ATTACHMENT_NO_DATA_TEXT}" uploadComplete="onUploadComplete" visible="true">
+				</UploadCollection>
+</core:View>

@@ -1,0 +1,168 @@
+<core:View controllerName="zwx.sm.itsm.keyuserincidents.ext.controllers.DetailsChange"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:suite="sap.suite.ui.commons" xmlns:form="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout"
+	xmlns:viz="sap.viz.ui5.controls">
+	<html:style>
+		.myContentStyle { margin: 0.5em 0 0.5em 0.5em; }
+	</html:style>
+	<form:Form editable="true" id="InformationForm">
+		<form:layout>
+			<form:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="true"/>
+		</form:layout>
+		<form:FormContainer id="InformationFormContainer1">
+			<form:formElements>
+				<form:FormElement id="ShortTextFormElement">
+					<form:label>
+						<Label id="ShortTextLabel" required="false" text="{i18n>INPUT_SHORTTEXT_LABEL}"/>
+					</form:label>
+					<form:fields>
+						<Input id="ShortText" liveChange="onShortTextLiveChange" type="Text"
+							value="{ path : 'Description', type : 'sap.ui.model.type.String', constraints : { minLength: 1, maxLength: 40 }}"
+							valueStateText="{i18n>INPUT_SHORTTEXT_ERROR_STATE}" ariaLabelledBy="ShortTextLabel"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="PriorityFormElement">
+					<form:label>
+						<Label id="PriorityLabel" text="{i18n>PRIORITY}"/>
+					</form:label>
+					<form:fields>
+						<Select autoAdjustWidth="true" selectedKey="{Priority}" change="onChangePriority" id="Priority"
+							items="{ path: '/PrioritySet', sorter: { path: 'Description' } }" ariaLabelledBy="PriorityLabel">
+							<core:Item id="PriorityItem" key="{PrioCode}" text="{Description}"/>
+						</Select>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ProcessorFormElement">
+					<form:label>
+						<Label id="LabelProcessor" text="{i18n>PROCESSOR}"/>
+					</form:label>
+					<form:fields>
+						<Input editable="true" id="Processor" liveChange="onValidatedFieldLiveChange" showSuggestion="true" showValueHelp="true"
+							valueHelpRequest="onValueHelpProcessor" suggest="handleSuggest" suggestionItemSelected="suggestionProcessorItemSelected"
+							change="onProcessorChange" suggestionItems="{path: '/ProcessorSet', parameters:{select: 'Name,Partner'}}" type="Text"
+							value="{ path : 'PersonRespName', type : 'sap.ui.model.type.String', constraints : { minLength: 0, maxLength: 100 } }"
+							valueStateText="{i18n>PROCESSOR_ERROR_STATE}" ariaLabelledBy="LabelProcessor">
+							<suggestionItems>
+								<core:Item id="ProcessorItem" app:type="{Partner}" text="{Name}"/>
+							</suggestionItems>
+						</Input>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="SupportTeamFormElement">
+					<form:label>
+						<Label id="LabelSupportTeam" text="{i18n>LBL_SUPPORT_TEAM}"/>
+					</form:label>
+					<form:fields>
+						<Input editable="true" id="SupportTeam" liveChange="onValidatedFieldLiveChange" showSuggestion="true" showValueHelp="true"
+							valueHelpRequest="onValueHelpSupportTeam" suggest="handleSuggest" suggestionItemSelected="suggestionSupportTeamItemSelected"
+							change="onSupportTeamChange" suggestionItems="{path: '/SupportTeamSet', parameters:{select: 'Name,Partner'}}" type="Text"
+							value="{ path : 'ServiceTeamList', type : 'sap.ui.model.type.String', constraints : { minLength: 0, maxLength: 100 } }"
+							valueStateText="{i18n>SUPPORT_TEAM_ERROR_STATE}" ariaLabelledBy="LabelSupportTeam">
+							<suggestionItems>
+								<core:Item id="SupportTeamItem" app:type="{Partner}" text="{Name}"/>
+							</suggestionItems>
+						</Input>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ReporterFormElement">
+					<form:label>
+						<Label id="LabelReporter" text="{i18n>REPORTER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="Reporter" text="{ReporterName}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="CustomerFormElement">
+					<form:label>
+						<Label id="LabelCustomer" text="{i18n>CUSTOMER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="Customer" text="{SoldToName}"/>
+					</form:fields>
+				</form:FormElement>
+			</form:formElements>
+		</form:FormContainer>
+		<form:FormContainer id="InformationFormContainer2">
+			<form:formElements id="InformationFormContainer2Elements">
+				<form:FormElement id="CategoryFormElement">
+					<form:label>
+						<Label id="CategoryLabel" text="{i18n>CATEGORY}"/>
+					</form:label>
+					<form:fields>
+						<Input id="CategoryInput" showValueHelp="true" value="{CategoryTxt}" type="Text" valueHelpOnly="true" valueHelpRequest="onCategoryValueHelp"
+							ariaLabelledBy="CategoryLabel"></Input>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ComponentFormElement">
+					<form:label>
+						<Label id="ComponentLabel" text="{i18n>COMPONENT}"/>
+					</form:label>
+					<form:fields>
+						<Input id="ComponentInput" value="{Component}" showValueHelp="true" type="Text" valueHelpOnly="true" valueHelpRequest="onComponentValueHelp"
+							ariaLabelledBy="ComponentLabel"/>
+					</form:fields>
+				</form:FormElement>
+				<!--<form:FormElement id="CategoryFormElement">-->
+				<!--	<form:label>-->
+				<!--		<Label id="CategoryLabel" text="{i18n>CATEGORY}"/>-->
+				<!--	</form:label>-->
+				<!--	<form:fields>-->
+				<!--		<Input id="CategoryInput" showValueHelp="true" value="{CategoryId}" type="Text" valueHelpOnly="true" valueHelpRequest="onCategoryValueHelp"-->
+				<!--			ariaLabelledBy="CategoryLabel"-->
+				<!--			liveChange="onValidatedFieldLiveChange" showSuggestion="true"-->
+				<!--			suggest="categoryHandleSuggest" suggestionItemSelected="categorySuggestionItemSelected"-->
+				<!--			suggestionItems="{path: '/CategorySet', parameters:{select: 'CategoryConcDescription,CategoryId'}}"-->
+				<!--			valueStateText="{i18n>CATEGORY_ERROR_STATE}">-->
+				<!--			<suggestionItems>-->
+				<!--				<core:Item id="CategoryItem" app:type="{CategoryId}" text="{CategoryConcDescription}"/>-->
+				<!--			</suggestionItems>-->
+				<!--		</Input>-->
+				<!--	</form:fields>-->
+				<!--</form:FormElement>-->
+				<!--<form:FormElement id="ComponentFormElement">-->
+				<!--	<form:label>-->
+				<!--		<Label id="ComponentLabel" text="{i18n>COMPONENT}"/>-->
+				<!--	</form:label>-->
+				<!--	<form:fields>-->
+				<!--		<Input id="ComponentInput" showValueHelp="true" value="{Component}" type="Text" valueHelpOnly="false" valueHelpRequest="onComponentValueHelp"-->
+				<!--			ariaLabelledBy="ComponentLabel"-->
+				<!--			liveChange="onValidatedFieldLiveChange" showSuggestion="true"-->
+				<!--			suggest="componentHandleSuggest" suggestionItemSelected="componentSuggestionItemSelected"-->
+				<!--			suggestionItems="{path: '/ComponentSet', parameters:{select: 'CompText,CompID'}}"-->
+				<!--			valueStateText="{i18n>CATEGORY_ERROR_STATE}">-->
+				<!--			<suggestionItems>-->
+				<!--				<core:Item id="ComponentItem" app:type="{CompID}" text="{CompText}"/>-->
+				<!--			</suggestionItems>-->
+				<!--		</Input>-->
+				<!--	</form:fields>-->
+				<!--</form:FormElement>-->
+				<form:FormElement id="ConfigItemFormElement">
+					<form:label>
+						<Label id="ConfigItemLabel" text="{i18n>CONFIG_ITEM}"/>
+					</form:label>
+					<form:fields>
+						<Input app:type="{ConfigItemId}" editable="true" id="ConfigItemInput" liveChange="onValidatedFieldLiveChange" showSuggestion="true"
+							showValueHelp="false" suggest="CIhandleSuggest" suggestionItemSelected="CIsuggestionItemSelected"
+							change="onConfigItemChange" suggestionItems="{path: '/ConfigurationItemSet', parameters:{select: 'Description,ConfigItemId'}}" type="Text"
+							value="{ path : 'RefTextObject', type : 'sap.ui.model.type.String' }"
+							valueStateText="{i18n>CONFIGITEM_ERROR_STATE}" ariaLabelledBy="ConfigItemLabel">
+							<suggestionItems>
+								<core:Item id="ConfigItemItem" app:type="{ConfigItemId}" text="{Description}"/>
+							</suggestionItems>
+						</Input>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="SAPNumberFormElement">
+					<form:label>
+						<Label id="SAPNumberLabel" text="{i18n>SAP_NUMBER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ICTNumInput" text="{ICTNum}"/>
+						<Text id="ICTYearInput" text="{ICTYear}"/>
+					</form:fields>
+				</form:FormElement>
+			</form:formElements>
+		</form:FormContainer>
+	</form:Form>
+</core:View>

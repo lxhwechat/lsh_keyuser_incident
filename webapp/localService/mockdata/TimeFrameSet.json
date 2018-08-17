@@ -1,0 +1,28 @@
+[{
+	"TimeFrameId": "N",
+	"TimeFrameDescription": "(None)"
+}, {
+	"TimeFrameId": "D 0",
+	"TimeFrameDescription": "Today"
+}, {
+	"TimeFrameId": "D+-1",
+	"TimeFrameDescription": "Yesterday"
+}, {
+	"TimeFrameId": "W+0",
+	"TimeFrameDescription": "This week"
+}, {
+	"TimeFrameId": "w+-1",
+	"TimeFrameDescription": "Last week"
+}, {
+	"TimeFrameId": "M A",
+	"TimeFrameDescription": "This month"
+}, {
+	"TimeFrameId": "M+-1",
+	"TimeFrameDescription": "Last month"
+}, {
+	"TimeFrameId": "Y A",
+	"TimeFrameDescription": "This year"
+}, {
+	"TimeFrameId": "Y+-1",
+	"TimeFrameDescription": "Last year"
+}]

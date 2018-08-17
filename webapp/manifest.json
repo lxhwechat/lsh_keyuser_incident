@@ -1,0 +1,246 @@
+{
+	"_version": "1.2.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "zwx.sm.itsm.keyuserincidents",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "${project.version}"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": []
+		},
+		"ach": "SV-SMG-SUP",
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZWX_GW_KEY_USER_INCIDENTS_SRV/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"localAnnotations"
+					],
+					"localUri": "localService/metadata.xml"
+				}
+			},
+
+			"localAnnotations": {
+				"uri": "annotations/annotations.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
+				}
+			}
+		},
+		"offline": false,
+		"sourceTemplate": {
+			"id": "ui5template.smarttemplate",
+			"version": "1.0.0"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"resources": {
+			"js": [],
+			"css": []
+		},
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.dist.version}",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {},
+				"sap.suite.ui.generic.template": {},
+				"sap.ui.layout": {
+					"minVersion": ""
+				},
+				"sap.ui.generic.app": {
+					"minVersion": ""
+				},
+				"sap.ui.richtexteditor" : {}
+			},
+			"components": {}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ListReport|IncidentSet": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|IncidentSet": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|TextSet": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"defaultUpdateMethod" : "MERGE",
+					"RefreshAfterChange" : true
+				}
+			}
+		},
+		"extends": {
+			"extensions": {
+				"sap.ui.viewExtensions": {
+					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
+						"SmartFilterBarControlConfigurationExtension|IncidentSet": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "zwx.sm.itsm.keyuserincidents.ext.fragments.CustomFilterExtension",
+							"type": "XML"
+						},
+						"ResponsiveTableColumnsExtension|IncidentSet": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "zwx.sm.itsm.keyuserincidents.ext.fragments.ListReportResponsiveTableColumns",
+							"type": "XML"
+						},
+						"ResponsiveTableCellsExtension|IncidentSet": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "zwx.sm.itsm.keyuserincidents.ext.fragments.ListReportResponsiveTableCells",
+							"type": "XML"
+						}
+					},
+					"sap.suite.ui.generic.template.ObjectPage.view.Details": {
+						"ReplaceFacet|IncidentSet|IncidentTextFacetID": {
+							"className": "sap.ui.core.mvc.View",
+							"viewName": "zwx.sm.itsm.keyuserincidents.ext.view.Texts",
+							"type": "XML",
+							"sap.ui.generic.app": {
+								"title": "{{@TextsFacet}}",
+								"id": "IncidentTextsFacetID"
+							}
+						},
+						"ReplaceFacet|IncidentSet|IncidentAttachmentFacetID": {
+							"className": "sap.ui.core.mvc.View",
+							"viewName": "zwx.sm.itsm.keyuserincidents.ext.view.Attachments",
+							"type": "XML",
+							"sap.ui.generic.app": {
+								"title": "{{@AttachmentsFacet}}"
+							}
+						},
+						"ReplaceFacet|IncidentSet|IncidentDetailDisplayFacetID": {
+							"className": "sap.ui.core.mvc.View",
+							"viewName": "zwx.sm.itsm.keyuserincidents.ext.view.DetailsDisplay",
+							"type": "XML",
+							"sap.ui.generic.app": {
+								"title": "{{@DetailsFacet}}"
+							}
+						},
+						"ReplaceFacet|IncidentSet|IncidentDetailChangeFacetID": {
+							"className": "sap.ui.core.mvc.View",
+							"viewName": "zwx.sm.itsm.keyuserincidents.ext.view.DetailsChange",
+							"type": "XML",
+							"sap.ui.generic.app": {
+								"title": "{{@DetailsFacet}}"
+							}
+						}
+					}
+				},
+				"sap.ui.controllerExtensions": {
+					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
+						"controllerName": "zwx.sm.itsm.keyuserincidents.ext.controllers.ListReportExtension"
+					},
+					"sap.suite.ui.generic.template.ObjectPage.view.Details": {
+						"controllerName": "zwx.sm.itsm.keyuserincidents.ext.controllers.ObjectPageExtension",
+						"sap.ui.generic.app": {
+							"IncidentSet": {
+								"EntitySet": "IncidentSet",
+								"Header": {
+									"Actions": {
+										"ObjectPageProcess": {
+											"id": "ObjectPageProcessAction",
+											"text": "{{@TakeoverAction}}",
+											"press": "onObjectPageProcessAction"
+
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ui.generic.app": {
+		"_version": "1.1.0",
+		"pages": [
+			{
+				"entitySet": "IncidentSet",
+				"component": {
+					"name": "sap.suite.ui.generic.template.ListReport",
+					"list": true
+				},
+				"pages": [
+					{
+						"entitySet": "IncidentSet",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						},
+						"pages": [
+							{
+								"navigationProperty": "TextSet",
+								"entitySet": "TextSet",
+								"component": {
+									"name": "sap.suite.ui.generic.template.ObjectPage"
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [
+			"F2531"
+		],
+		"archeType": "transactional"
+	},
+	"sap.platform.hcp": {
+		"_version": "1.2.0",
+		"uri": ""
+	}
+}

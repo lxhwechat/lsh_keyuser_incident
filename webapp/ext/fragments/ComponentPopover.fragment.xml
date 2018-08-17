@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<Dialog showHeader="false" contentWidth="400px" contentHeight="700px" title="{i18n>SELECT_COMPONENT}" afterClose="onPopoverAfterClose">
+		<content>
+			<Page id="master" title="{i18n>INPUT_COMPONENT_LABEL}" showNavButton="true" navButtonPress="onCompNavButtonPress" class="marginBoxContent">
+				<headerContent></headerContent>
+				<subHeader>
+					<Toolbar>
+						<SearchField id="searchField" liveChange="onCompSearch" width="100%"/>
+					</Toolbar>
+				</subHeader>
+				<List id="compPopoverList" items="{/ComponentSet}" selectionChange="onCompSelectPopover" growing="true" growingScrollToLoad="true">
+					<CustomListItem id="componentListItem" class="myContentStyle" press="onCompNavToNextLevel" type="{CompListType}">
+						<ObjectIdentifier id="componentIdentifier" title="{CompID}" text="{CompText}" titleActive="{CompSelectable}" titlePress="onCompTitleClicked"/>
+					</CustomListItem>
+				</List>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="clearButton" press="onCompPopoverClear" text="{i18n>CLEAR_VALUE}"/>
+						<Button id="closeButton" text="{i18n>BUTTON_CANCEL}" press="onPopoverCancel"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,94 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns="sap.m"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:suite="sap.suite.ui.commons"
+	xmlns:form="sap.ui.layout.form">
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="1" key="ObjectId" label="{i18n>@TransactionID}" visibleInAdvancedArea="true">
+	</smartfilterbar:ControlConfiguration>
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="2" key="StatusFilter" label="{i18n>LBL_STATUS}" visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<MultiComboBox id="StatusList-multicombobox" selectionFinish="handleStatusSelection" width="500px"
+				items="{ path: '/DescriptiveStatusSet', sorter: { path: 'DescriptiveStatusDescription' } }">
+				<core:Item key="{DescriptiveStatusCode}" text="{DescriptiveStatusDescription}"/>
+			</MultiComboBox>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="3" key="PriorityFilter" label="{i18n>LBL_PRIORITY}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<MultiComboBox id="PriorityList-multicombobox" selectionFinish="handlePrioritySelection" width="500px"
+				items="{ path: '/PrioritySet', sorter: { path: 'Description' } }">
+				<core:Item key="{PrioCode}" text="{Description}"/>
+			</MultiComboBox>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="4" key="TimeFrameFilter" label="{i18n>LBL_TIME_FRAME}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<ComboBox id="TimeFrame-combobox" width="500px" items="{ path: '/TimeFrameSet', sorter: { path: 'TimeFrameDescription' } }"
+				change="handleTimeFrameChange">
+				<core:Item key="{TimeFrameId}" text="{TimeFrameDescription}"/>
+			</ComboBox>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="5" key="DateRangeSelectorFilter" label="{i18n>LBL_DATE_RANGE_SELECTOR}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<DateRangeSelection id="DateRangeSelector" change="handleDateRangeChange"/>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+	<!--<smartfilterbar:ControlConfiguration groupId="_BASIC" index="4" key="AssignedFilter" label="{i18n>LBL_ASSIGNED}" visibleInAdvancedArea="true">-->
+	<!--	<smartfilterbar:customControl>-->
+	<!--		<ComboBox id="AssignedList-combobox" width="500px" items="{ path: '/AssignedSet', sorter: { path: 'Text' } }">-->
+	<!--			<core:Item key="{Pos}" text="{Text}"/>-->
+	<!--		</ComboBox>-->
+	<!--	</smartfilterbar:customControl>-->
+	<!--</smartfilterbar:ControlConfiguration>-->
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="6" key="ProcessorFilter" label="{i18n>LBL_PROCESSOR}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<MultiInput app:type="{PersonResp}" editable="true" id="ProcessorFilter" liveChange="onValidatedFieldLiveChange" showSuggestion="true"
+				showValueHelp="true" valueHelpRequest="onValueHelpProcessor" suggest="handleSuggest" suggestionItemSelected="suggestionProcessorItemSelected"
+				suggestionItems="{path: '/ProcessorSet', parameters:{select: 'Name,Partner'}}" type="Text" enableMultiLineMode="true"
+				valueStateText="{i18n>PROCESSOR_ERROR_STATE}" ariaLabelledBy="LabelProcessor">
+				<suggestionItems>
+					<core:Item id="ProcessorItem" app:type="{Partner}" text="{Name}"/>
+				</suggestionItems>
+			</MultiInput>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="7" key="SupportTeamFilter" label="{i18n>LBL_SUPPORT_TEAM}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<MultiInput app:type="{ServiceTeam}" editable="true" id="SupportTeamFilter" liveChange="onValidatedFieldLiveChange" showSuggestion="true"
+				showValueHelp="true" valueHelpRequest="onValueHelpSupportTeam" suggest="handleSuggest" suggestionItemSelected="suggestionSupportTeamItemSelected"
+				suggestionItems="{path: '/SupportTeamSet'}" enableMultiLineMode="true">
+
+					<core:Item id="SupportTeamrItem" app:type="{Partner}" text="{Name}"/>
+
+			</MultiInput>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+
+	<!--<smartfilterbar:ControlConfiguration groupId="_BASIC" index="6" key="FavoritesFilter" label="{i18n>LBL_FAVORITES}"-->
+	<!--	visibleInAdvancedArea="true">-->
+	<!--	<smartfilterbar:customControl>-->
+	<!--		<CheckBox id="Favorites-switch" selected="false"></CheckBox>-->
+	<!--	</smartfilterbar:customControl>-->
+	<!--</smartfilterbar:ControlConfiguration>-->
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="8" key="FavoritesOptionFilter" label="{i18n>LBL_FAVORITES}"
+		visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<ComboBox id="FavoritesFilter-combobox" width="500px" items="{ path: '/FavoriteOptionSet', sorter: { path: 'FavoriteOptionDescription' } }">
+				<core:Item key="{FavoriteOptionId}" text="{FavoriteOptionDescription}"/>
+			</ComboBox>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+	<smartfilterbar:ControlConfiguration groupId="_BASIC" index="9" key="ProcessTypeFilter" label="{i18n>LBL_PROCESS_TYPE}" visibleInAdvancedArea="true">
+		<smartfilterbar:customControl>
+			<MultiComboBox id="ProcessTypeList-multicombobox" selectionFinish="handleProcessTypeSelection" width="500px"
+				items="{ path: '/ProcessTypeSet', sorter: { path: 'ProcessTypeDescriptionLong' } }">
+				<core:Item key="{ProcessTypeCode}" text="{ProcessTypeDescriptionLong}"/>
+			</MultiComboBox>
+		</smartfilterbar:customControl>
+	</smartfilterbar:ControlConfiguration>
+</core:FragmentDefinition>

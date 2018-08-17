@@ -1,0 +1,4 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m"> 	
+	<core:Icon src="{ path: 'IsFavorite', formatter: 'zwx.sm.itsm.keyuserincidents.util.Util.getIncidentFavoriteValue' }" press="markFavorite" alt="{i18n>LBL_FAVORITE}" 
+				color="#007CC0"> </core:Icon>	
+</core:FragmentDefinition>

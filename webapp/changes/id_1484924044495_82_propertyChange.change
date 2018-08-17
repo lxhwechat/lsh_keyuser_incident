@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1484924044495_82_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "zwx.sm.itsm.keyuserincidents.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "titleUppercase",
+		"oldValue": true,
+		"newValue": false
+	},
+	"selector": {
+		"id": "zwx.sm.itsm.keyuserincidents::sap.suite.ui.generic.template.ObjectPage.view.Details::IncidentSet--IncidentDetailChangeFacetID::Section",
+		"type": "sap.uxap.ObjectPageSection",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/zwx.sm.itsm.keyuserincidents/changes/",
+	"creation": "2017-01-20T14:54:04.710Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

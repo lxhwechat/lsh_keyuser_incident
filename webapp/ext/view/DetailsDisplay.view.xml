@@ -1,0 +1,103 @@
+<core:View controllerName="zwx.sm.itsm.keyuserincidents.ext.controllers.DetailsDisplay"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" xmlns:core="sap.ui.core" xmlns="sap.m"
+	xmlns:suite="sap.suite.ui.commons" xmlns:form="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout"
+	xmlns:viz="sap.viz.ui5.controls">
+	<html:style>
+		.myContentStyle { margin: 0.5em 0 0.5em 0.5em; }
+	</html:style>
+	<form:Form editable="false" id="InformationFormDisplay">
+		<form:layout>
+			<form:ResponsiveGridLayout labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"
+				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="true"/>
+		</form:layout>
+		<form:FormContainer id="InformationFormContainer1Display">
+			<form:formElements>
+				<form:FormElement id="ShortTextFormElementDisplay">
+					<form:label>
+						<Label id="ShortTextLabelDisplay" required="false" text="{i18n>INPUT_SHORTTEXT_LABEL}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ShortTextDisplay" text="{Description}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="PriorityFormElementDisplay">
+					<form:label>
+						<Label id="PriorityLabelDisplay" text="{i18n>PRIORITY}"/>
+					</form:label>
+					<form:fields>
+						<Text id="PriorityDisplay" text="{PriorityTxt}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ProcessorFormElementDisplay">
+					<form:label>
+						<Label id="LabelProcessorDisplay" text="{i18n>PROCESSOR}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ProcessorDisplay" text="{PersonRespName}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="SupportTeamFormElementDisplay">
+					<form:label>
+						<Label id="LabelSupportTeamDisplay" text="{i18n>LBL_SUPPORT_TEAM}"/>
+					</form:label>
+					<form:fields>
+						<Text id="SupportTeamDisplay" text="{ServiceTeamList}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ReporterFormElementDisplay">
+					<form:label>
+						<Label id="LabelReporterDisplay" text="{i18n>REPORTER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ReporterDisplay" text="{ReporterName}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="CustomerFormElementDisplay">
+					<form:label>
+						<Label id="LabelCustomerDisplay" text="{i18n>CUSTOMER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="CustomerDisplay" text="{SoldToName}"/>
+					</form:fields>
+				</form:FormElement>
+			</form:formElements>
+		</form:FormContainer>
+		<form:FormContainer id="InformationFormContainer2Display">
+			<form:formElements id="InformationFormContainer2ElementsDisplay">
+				<form:FormElement id="CategoryFormElementDisplay">
+					<form:label>
+						<Label id="CategoryLabelDisplay" text="{i18n>CATEGORY}"/>
+					</form:label>
+					<form:fields>
+						<Text id="CategoryInputDisplay" text="{CategoryTxt}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ComponentFormElementDisplay">
+					<form:label>
+						<Label id="ComponentLabelDisplay" text="{i18n>COMPONENT}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ComponentInputDisplay" text="{Component}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="ConfigItemFormElementDisplay">
+					<form:label>
+						<Label id="ConfigItemLabelDisplay" text="{i18n>CONFIG_ITEM}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ConfigItemInputDisplay" text="{RefTextObject}"/>
+					</form:fields>
+				</form:FormElement>
+				<form:FormElement id="SAPNumberFormElementDisplay">
+					<form:label>
+						<Label id="SAPNumberLabelDisplay" text="{i18n>SAP_NUMBER}"/>
+					</form:label>
+					<form:fields>
+						<Text id="ICTNumInputDisplay" text="{ICTNum}"/>
+						<Text id="ICTYearInputDisplay" text="{ICTYear}"/>
+					</form:fields>
+				</form:FormElement>
+			</form:formElements>
+		</form:FormContainer>
+	</form:Form>
+</core:View>

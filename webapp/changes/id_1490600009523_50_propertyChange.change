@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1490600009523_50_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "zwx.sm.itsm.keyuserincidents.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "hAlign",
+		"oldValue": "Begin",
+		"newValue": "Right"
+	},
+	"selector": {
+		"id": "zwx.sm.itsm.keyuserincidents::sap.suite.ui.generic.template.ListReport.view.ListReport::IncidentSet--listReport-ChangedAtDateFormatted",
+		"type": "sap.m.Column",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/zwx.sm.itsm.keyuserincidents/changes/",
+	"creation": "2017-03-27T07:33:30.420Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

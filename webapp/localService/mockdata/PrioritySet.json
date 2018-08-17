@@ -1,0 +1,29 @@
+[{
+	"PrioCode": "1",
+	"Description": "Very High",
+	"__metadata": {
+		"uri": "PrioritySet('1')",
+		"type": "AI_CRM_GW_MYMESSAGE_SRV.Priority"
+	}
+}, {
+	"PrioCode": "2",
+	"Description": "High",
+	"__metadata": {
+		"uri": "PrioritySet('2')",
+		"type": "AI_CRM_GW_MYMESSAGE_SRV.Priority"
+	}
+}, {
+	"PrioCode": "3",
+	"Description": "Medium",
+	"__metadata": {
+		"uri": "PrioritySet('3')",
+		"type": "AI_CRM_GW_MYMESSAGE_SRV.Priority"
+	}
+}, {
+	"PrioCode": "4",
+	"Description": "Low",
+	"__metadata": {
+		"uri": "PrioritySet('4')",
+		"type": "AI_CRM_GW_MYMESSAGE_SRV.Priority"
+	}
+}]

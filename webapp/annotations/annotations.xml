@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/AI_CRM_GW_KEY_USER_INCIDENTS_SRV/$metadata">
+		<edmx:Include Alias="AI_CRM_GW_KEY_USER_INCIDENTS_SRV" Namespace="AI_CRM_GW_KEY_USER_INCIDENTS_SRV"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Communication.xml">
+		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Common.xml">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zwx.sm.itsm.keyuserincidents.AI_CRM_GW_KEY_USER_INCIDENTS_SRV">
+			<!--===============================================================================
+                Entity Type from chosen collection
+                ================================================================================-->
+			<Annotations Target="AI_CRM_GW_KEY_USER_INCIDENTS_SRV.Incident">
+				<Annotation Term="UI.HeaderInfo">
+					<Record>
+						<PropertyValue Property="TypeName" String="{@i18n>OBJECT_PAGE_TITLE}"/>
+						<PropertyValue Property="TypeNamePlural" String="Incidents"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Description"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="IntroText"/>
+							</Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="IncidentData">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n>@PRIORITY}"/>
+									<PropertyValue Property="Value" Path="PriorityTxt"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n>@REQUESTOR}"/>
+									<PropertyValue Property="Value" Path="ReporterName"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n>@PROCESSOR}"/>
+									<PropertyValue Property="Value" Path="PersonRespName"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n>@CREATED_ON}"/>
+									<PropertyValue Property="Value" Path="CreatedAtDateFormatted"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Label" String="{@i18n>@LAST_UPDATE}"/>
+									<PropertyValue Property="Value" Path="ChangedAtDateFormatted"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="Label" String="Incident Details"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="HeaderInformation1">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ReporterName"/>
+									<PropertyValue Property="Label" String="{@i18n>@REQUESTOR}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PriorityTxt"/>
+									<PropertyValue Property="Label" String="{@i18n>@PRIORITY}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="HeaderInformation2">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="ObjectId"/>
+									<PropertyValue Property="Label" String="{@i18n>@ID}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PostingDate"/>
+									<PropertyValue Property="Label" String="{@i18n>@POSTING_DATE}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="HeaderInformation3">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="PersonRespName"/>
+									<PropertyValue Property="Label" String="{@i18n>@PROCESSOR}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="UserStatusDescription"/>
+									<PropertyValue Property="Label" String="{@i18n>@USERSTATUS}"/>
+									<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<!--Placeholder facets for breakouts-->
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n>@TextsFacet}"/>
+							<PropertyValue Property="ID" String="IncidentTextFacetID"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInformation1"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n>@AttachmentsFacet}"/>
+							<PropertyValue Property="ID" String="IncidentAttachmentFacetID"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderInformation2"/>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="IncidentDetailDisplayFacetID"/>
+							<PropertyValue Property="Label" String="{@i18n>@DetailsFacet}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue AnnotationPath="@UI.FieldGroup#IncidentData" Property="Target"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="IncidentDetailChangeFacetID"/>
+							<PropertyValue Property="Label" String="{@i18n>@DetailsFacet}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue AnnotationPath="@UI.FieldGroup#IncidentData" Property="Target"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<!--<Record Type="UI.ReferenceFacet">-->
+						<!--	<PropertyValue Property="Label" String="{@i18n>xtit.salesData}"/>-->
+						<!--	<PropertyValue Property="ID" String="ProductChartFacetID"/>-->
+						<!--</Record>-->
+						<!--Smart chart facet: work in progress-->
+						<!--<Record Type="UI.ReferenceFacet">-->
+						<!--	<PropertyValue Property="Label" String="{@i18n>xtit.smartSalesData}"/>-->
+						<!--	<PropertyValue Property="Target" AnnotationPath="to_ProductSalesData/@UI.Chart"/>-->
+						<!--</Record>-->
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderFacets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue AnnotationPath="@UI.FieldGroup#HeaderInformation1" Property="Target"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue AnnotationPath="@UI.FieldGroup#HeaderInformation2" Property="Target"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue AnnotationPath="@UI.FieldGroup#HeaderInformation3" Property="Target"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="IRTPercentage"/>
+							<PropertyValue Property="Label" String="{@i18n>@IRT_USAGE}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Criticality" Path="IRTCriticality"/>
+							<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="MPTPercentage"/>
+							<PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithIcon"/>
+							<PropertyValue Property="Value" Path="MPTPercentage"/>
+							<PropertyValue Property="Label" String="{@i18n>@MPT_USAGE}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Criticality" Path="MPTCriticality"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="PriorityTxt"/>
+							<PropertyValue Property="Label" String="{@i18n>@PRIORITY}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@PRIORITY}"/>
+							<PropertyValue Property="Value" Path="PriorityTxt"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ObjectId"/>
+							<PropertyValue Property="Label" String="{@i18n>@TransactionID}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@TransactionID}"/>
+							<PropertyValue Property="Value" Path="ObjectId"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Description"/>
+							<PropertyValue Property="Label" String="{@i18n>@SHORT_TEXT}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@SHORT_TEXT}"/>
+							<PropertyValue Property="Value" Path="Description"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ReporterName"/>
+							<PropertyValue Property="Label" String="{@i18n>@REQUESTOR}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@REQUESTOR}"/>
+							<PropertyValue Property="Value" Path="ReporterName"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="UserStatusDescription"/>
+							<PropertyValue Property="Label" String="{@i18n>@USERSTATUS}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="PersonRespName"/>
+							<PropertyValue Property="Label" String="{@i18n>@PROCESSOR}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@PROCESSOR}"/>
+							<PropertyValue Property="Value" Path="PersonRespName"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="CreatedAtDateFormatted"/>
+							<PropertyValue Property="Label" String="{@i18n>@CREATED_ON}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="{@i18n>@CREATED_ON}"/>
+							<PropertyValue Property="Value" Path="CreatedAtDateFormatted"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Label" String="{@i18n>@LAST_UPDATE}">
+								<Annotation Term="UI.MultiLineText" Bool="false"/>
+							</PropertyValue>
+							<PropertyValue Property="Value" Path="ChangedAtDateFormatted"/>
+							<PropertyValue Property="Label" String="{@i18n>@LAST_UPDATE}"/>
+							<PropertyValue Property="Value" Path="ChangedAtDateFormatted"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/Medium"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>Description</PropertyPath>
+					</Collection>
+				</Annotation>
+				<!--<Annotation Term="UI.SelectionFields">-->
+				<!--	<Collection>-->
+				<!--		<PropertyPath>PersonResp</PropertyPath>-->
+				<!--	 </Collection>-->
+				<!--</Annotation>-->
+			</Annotations>
+			<!--<Annotations Target="AI_CRM_GW_KEY_USER_INCIDENTS_SRV.Incident/PersonResp">-->
+			<!--    <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">-->
+			<!--        <Record>-->
+			<!--            <PropertyValue Property="Label" String="Value Help for Business Partner"/>-->
+			<!--            <PropertyValue Property="CollectionPath" String="BusinessPartnerSet"/>-->
+			<!--            <PropertyValue Property="SearchSupported" Bool="true"/>-->
+			<!--            <PropertyValue Property="Parameters">-->
+			<!--                <Collection>-->
+			<!--                    <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">-->
+			<!--                        <PropertyValue Property="ValueListProperty" String="Partner"/>-->
+			<!--                        <PropertyValue Property="LocalDataProperty" PropertyPath="PersonResp"/>-->
+			<!--                    </Record>-->
+			<!--                    <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">-->
+			<!--                        <PropertyValue Property="ValueListProperty" String="Name"/>-->
+			<!--                    </Record>-->
+			<!--                </Collection>-->
+			<!--            </PropertyValue>-->
+			<!--        </Record>-->
+			<!--    </Annotation>-->
+			<!--</Annotations>-->
+			<!--===============================================================================
+                Entity Type from chosen navigation property
+                ================================================================================-->
+			<Annotations Target="AI_CRM_GW_KEY_USER_INCIDENTS_SRV.Text">
+				<!--<Annotation Term="UI.Facets">-->
+				<!--	<Collection>-->
+				<!--		<Record Type="UI.CollectionFacet">-->
+				<!--			<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>-->
+				<!--			<PropertyValue Property="ID" String="GeneralInformation"/>-->
+				<!--			<PropertyValue Property="Facets">-->
+				<!--				<Collection>-->
+				<!--					<Record Type="UI.ReferenceFacet">-->
+				<!--						<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>-->
+				<!--						<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>-->
+				<!--					</Record>-->
+				<!--				</Collection>-->
+				<!--			</PropertyValue>-->
+				<!--		</Record>-->
+				<!--	</Collection>-->
+				<!--</Annotation>-->
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="TextString"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1517998453365_97_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyBindingChange",
+	"reference": "zwx.sm.itsm.keyuserincidents.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "enabled",
+		"oldValue": true,
+		"newBinding": "{TakeoverActive}"
+	},
+	"selector": {
+		"id": "zwx.sm.itsm.keyuserincidents::sap.suite.ui.generic.template.ObjectPage.view.Details::IncidentSet--action::ObjectPageProcessAction",
+		"type": "sap.uxap.ObjectPageHeaderActionButton",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/zwx.sm.itsm.keyuserincidents/changes/",
+	"creation": "2018-02-07T10:14:13.534Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

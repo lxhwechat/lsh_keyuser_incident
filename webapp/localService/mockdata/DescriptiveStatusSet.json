@@ -1,0 +1,19 @@
+[{
+	"DescriptiveStatusCode": "NEW",
+	"DescriptiveStatusDescription": "New"
+}, {
+	"DescriptiveStatusCode": "IN_PROC",
+	"DescriptiveStatusDescription": "In Process"
+}, {
+	"DescriptiveStatusCode": "CUSTACTION",
+	"DescriptiveStatusDescription": "Customer Action"
+}, {
+	"DescriptiveStatusCode": "PROP_SOL",
+	"DescriptiveStatusDescription": "Proposed Solution"
+}, {
+	"DescriptiveStatusCode": "WITHDRAWN",
+	"DescriptiveStatusDescription": "Withdrawn"
+}, {
+	"DescriptiveStatusCode": "CONFIRMED",
+	"DescriptiveStatusDescription": "Closed"
+}]

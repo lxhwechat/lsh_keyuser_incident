@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:core="sap.ui.core">
+	<Dialog showHeader="false" contentWidth="400px" contentHeight="700px" title="{i18n>SELECT_CATEGORY}" afterClose="onPopoverAfterClose">
+		<content>
+			<Page id="master" title="{i18n>INPUT_CATEGORY_LABEL}" showNavButton="true" navButtonPress="onCatNavButtonPress" class="marginBoxContent">
+				<headerContent></headerContent>
+				<subHeader>
+					<Toolbar>
+						<SearchField id="searchField" liveChange="onCatSearch" width="100%"/>
+					</Toolbar>
+				</subHeader>
+				<List id="catPopoverList" items="{/CategorySet}" selectionChange="onCatSelectPopover">
+					<CustomListItem id="categoryListItem" class="myContentStyle" press="onCatNavToNextLevel" type="{CatListType}">
+						<ObjectIdentifier id="categoryIdentifier" title="{CategoryName}" titleActive="true" titlePress="onCatTitleClicked"/>
+					</CustomListItem>
+				</List>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="clearButton" press="onCatPopoverClear" text="{i18n>CLEAR_VALUE}"/>
+						<Button id="closeButton" text="{i18n>BUTTON_CANCEL}" press="onPopoverCancel"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

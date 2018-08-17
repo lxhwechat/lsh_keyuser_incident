@@ -1,0 +1,20 @@
+{
+  "name": "lsh_keyuser_incident",
+  "version": "1.0.0",
+  "description": "lsh_keyuser_incident",
+  "main": "index.js",
+  "scripts": {
+    "build": "rimraf dist && ui5 build --a && rimraf dist/resources"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openui5/sap.m": "^1.58.0",
+    "@openui5/sap.ui.core": "^1.58.0",
+    "@openui5/themelib_sap_bluecrystal": "^1.58.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2"
+  }
+}
