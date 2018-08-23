@@ -9,6 +9,7 @@ sap.ui.define([
 	return Controller.extend("zwx.sm.itsm.keyuserincidents.ext.controllers.DetailsDisplay", {
 
 		onInit: function() {
-			}
+		}
+
 	});
 });

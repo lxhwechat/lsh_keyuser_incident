@@ -3,7 +3,7 @@
 	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
 		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
 	</edmx:Reference>
-	<edmx:Reference Uri="/sap/opu/odata/sap/AI_CRM_GW_KEY_USER_INCIDENTS_SRV/$metadata">
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZWX_GW_KEY_USER_INCIDENTS_SRV/$metadata">
 		<edmx:Include Alias="AI_CRM_GW_KEY_USER_INCIDENTS_SRV" Namespace="AI_CRM_GW_KEY_USER_INCIDENTS_SRV"/>
 	</edmx:Reference>
 	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Communication.xml">

@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
     "@openui5/sap.m": "^1.58.0",
     "@openui5/sap.ui.core": "^1.58.0",
     "@openui5/themelib_sap_bluecrystal": "^1.58.0"
-  },
-  "devDependencies": {
-    "rimraf": "^2.6.2"
   }
 }

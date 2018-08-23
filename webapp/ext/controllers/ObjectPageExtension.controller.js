@@ -1,4 +1,5 @@
 jQuery.sap.require("zwx.sm.itsm.keyuserincidents.util.Util");
+
 sap.ui.controller("zwx.sm.itsm.keyuserincidents.ext.controllers.ObjectPageExtension", {
 
 	onInit: function() {
@@ -27,12 +28,12 @@ sap.ui.controller("zwx.sm.itsm.keyuserincidents.ext.controllers.ObjectPageExtens
 					// 			};
 
 					// 			this._oPopover = sap.ui.xmlfragment("ProcessPopup", "zwx.sm.itsm.keyuserincidents.ext.fragments.ProcessDialog", that);
-					// 			this._oPopover.setModel(this.oView.getModel());				
+					// 			this._oPopover.setModel(this.oView.getModel());
 					// 			this._oPopover.setModel(this.oView.getModel("i18n"), "i18n");
 					// 			this._oPopover.setBindingContext(this.getView().getBindingContext());
 
-					// 	//		to get the smaller desktop UI		
-					// 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.oView, this._oPopover);				
+					// 	//		to get the smaller desktop UI
+					// 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.oView, this._oPopover);
 					// 			this._oPopover.open();
 
 				}
@@ -60,11 +61,11 @@ sap.ui.controller("zwx.sm.itsm.keyuserincidents.ext.controllers.ObjectPageExtens
 		var messageIcon,messageTitle;
 		$.each(mMessages, function(index, value) {
 			messageTitle = value.type;
-			
+
 			switch (value.type) {
 				case "Error":
 					messageIcon = sap.m.MessageBox.Icon.ERROR;
-				
+
 					break;
 				case "Warining":
 					messageIcon = sap.m.MessageBox.Icon.WARNING;

@@ -544,12 +544,12 @@ zwx.sm.itsm.keyuserincidents.util.Util = {
 			this.incidentData.PersonRespName = undefined;
 		}
 	},
-	
+
 	removeConfigItem: function() {
 		if (this.incidentData) {
 			this.incidentData.ConfigItemId = undefined;
 		}
-	},	
+	},
 
 	removeSupportTeam: function() {
 		if (this.incidentData) {

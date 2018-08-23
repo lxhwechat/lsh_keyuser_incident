@@ -188,7 +188,6 @@
 											"id": "ObjectPageProcessAction",
 											"text": "{{@TakeoverAction}}",
 											"press": "onObjectPageProcessAction"
-
 										}
 									}
 								}
