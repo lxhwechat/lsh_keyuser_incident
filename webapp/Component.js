@@ -42,8 +42,7 @@ sap.ui.generic.app.AppComponent.extend("zwx.sm.itsm.keyuserincidents.Component",
 	},
 
 	_onNotProcessor: function() {
-		history.back();
-  	// window.close();
+		
 	},
 
 });
