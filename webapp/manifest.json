@@ -17,7 +17,7 @@
 		"resources": "resources.json",
 		"dataSources": {
 			"mainService": {
-				"uri": "/sap/opu/odata/sap/ZWX_GW_KEY_USER_INCIDENTS_SRV/",
+				"uri": "/sap/wechat/odata/gw_search_inc/",
 				"type": "OData",
 				"settings": {
 					"annotations": [
